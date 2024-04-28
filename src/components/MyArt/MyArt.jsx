@@ -54,10 +54,10 @@ const MyArt = () => {
                             className="input input-bordered w-full" />
                         </label>
                     </div>
-                <div className="mt-3">
+                <div className="mt-4">
                     <input type="submit" value="Update" className="w-full bg-primary btn text-xl font-semibold" />
                 </div>
-                <div className="mt-3">
+                <div className="mt-4">
                     <input type="submit" value="Delete" className="w-full bg-secondary btn text-xl font-semibold" />
                 </div>
             </form>

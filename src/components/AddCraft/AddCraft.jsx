@@ -116,7 +116,7 @@ const AddCraft = () => {
                         </label>
                     </div>
                 </div>
-                <div className="mt-3">
+                <div className="mt-4">
                     <input type="submit" value="Add Craft" className="w-full bg-primary btn text-xl font-semibold" />
                 </div>
             </form>
