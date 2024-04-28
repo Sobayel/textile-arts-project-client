@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { register } from "swiper/element";
@@ -7,11 +7,8 @@ import { register } from "swiper/element";
 const Register = () => {
     return (
         <div className="justify-center items-center w-96 border bg-slate-200 rounded-2xl mx-auto">
-        <h1 data-aos="fade-up" data-aos-delay="1000" className="text-2xl font-bold flex justify-center my-2">Register Login form</h1>
-        <Helmet>
-            <title>Register</title>
-        </Helmet>
-    <form className="px-5 pt-6 mt-2">
+        <h1 data-aos="fade-up" data-aos-delay="1000" className="text-2xl font-bold flex justify-center my-2">Register form</h1>
+    <form className="px-5 pt-4 mt-2">
         <div>
             <p data-aos="fade-up" data-aos-delay="1100" className="font-semibold">Name</p>
             <label data-aos="fade-up" data-aos-delay="1200" className="input input-bordered flex items-center gap-2">
@@ -66,8 +63,6 @@ const Register = () => {
             </Link>
           </label>
     </form>
-    
-    <SocialSide></SocialSide>
 </div>
     );
 };
