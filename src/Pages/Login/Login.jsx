@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { register } from "swiper/element";
+import SocialSide from "../SocialSide/SocialSide";
 
 
 const Login = () => {
@@ -37,6 +38,7 @@ const Login = () => {
                 New here? <Link to="/register" className="label-text-alt font-semibold text-sm text-blue-700 link link-hover">Please Register</Link>
             </label>
         </form>
+        <SocialSide></SocialSide>
     </div>
     );
 };

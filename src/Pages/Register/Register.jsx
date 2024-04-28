@@ -2,6 +2,7 @@
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { register } from "swiper/element";
+import SocialSide from "../SocialSide/SocialSide";
 
 
 const Register = () => {
@@ -63,6 +64,7 @@ const Register = () => {
             </Link>
           </label>
     </form>
+    <SocialSide></SocialSide>
 </div>
     );
 };
