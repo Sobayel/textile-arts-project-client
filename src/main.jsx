@@ -10,7 +10,6 @@ import Error from './components/Error/Error';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
-import AllArt from './components/AllArt/AllArt';
 import AddCraft from './components/AddCraft/AddCraft';
 import MyArt from './components/MyArt/MyArt';
 import { HelmetProvider } from 'react-helmet-async';
@@ -53,8 +52,9 @@ const router = createBrowserRouter([
         element:<MyArt></MyArt>
       },
       {
-        path:"/allArtDetails",
-        element:<AllArtDetails></AllArtDetails>
+        path:"/allArtDetails/:id",
+        element:<AllArtDetails></AllArtDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/addCraft/${params.id}`)
       },
       {
         path:"/updateArts",
