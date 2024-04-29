@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA5xuQDlywubnZFJPwVUyWddGYwyy6rIvs",
-  authDomain: "textile-arts-da163.firebaseapp.com",
-  projectId: "textile-arts-da163",
-  storageBucket: "textile-arts-da163.appspot.com",
-  messagingSenderId: "438862144431",
-  appId: "1:438862144431:web:320ae416355aecda0e855a"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

@@ -3,7 +3,7 @@
 const ArtCraft = () => {
     return (
         <div>
-            <h2>ArtCraft category</h2>
+            <h2 className="text-center text-3xl font-bold">Art & Craft Categories Card</h2>
         </div>
     );
 };

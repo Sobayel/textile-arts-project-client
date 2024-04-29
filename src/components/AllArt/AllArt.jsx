@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 
 
-const AllArt = () => {
+const AllArt = ({allCraft}) => {
+        const { index, name, subcategory, stock, customization, price,rating } = allCraft;
     return (
-        <div className="overflow-x-auto">
+        <div className="">
   <table className="table table-xs">
     <thead>
       <tr>
@@ -19,13 +20,13 @@ const AllArt = () => {
     </thead> 
     <tbody>
       <tr>
-        <th>1</th> 
-        <td>Cy Ganderton</td> 
-        <td>Quality Control Specialist</td> 
-        <td>Littel, Schaden and Vandervort</td> 
-        <td>Canada</td> 
-        <td>12/16/2020</td> 
-        <td>Blue</td>
+        <th>{index}</th> 
+        <td>{name}</td> 
+        <td>{subcategory}</td> 
+        <td>{stock}</td> 
+        <td>{customization}</td> 
+        <td>{rating}</td> 
+        <td>{price}</td>
         <td><Link to='/allArtDetails'>View Details</Link></td>
       </tr>
     </tbody> 

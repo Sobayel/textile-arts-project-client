@@ -1,5 +1,3 @@
-
-
 const UpdateArts = () => {
     return (
         <div className="bg-[#F4F3F0] py-5 px-24 rounded-xl">

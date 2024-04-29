@@ -27,16 +27,16 @@ const AllArtDetails = () => {
         <Typography>
         <span className="font-semibold">User Name: </span>Md.Sobayel hossain
         </Typography>
-        <Typography variant="h5" color="gray" className="mb-2 font-bold uppercase">
-          Item Name: Sobayel Hossain
+        <Typography variant="h5" className="mb-2 font-semibold">
+          <span className="font-semibold">Item Name: </span>Sobayel Hossain
         </Typography>
         <Typography color="blue-gray" className="mb-1">
           <span className="font-semibold">Subcategory: </span>Soba
         </Typography>
-        <Typography data-aos="fade-left" data-aos-delay="1800" variant="h5" color="blue-gray" className="mb-1 text-lg font-normal">
+        <Typography className="mb-1">
         <span className="font-semibold">Description: </span> i can....
         </Typography>
-        <Typography variant="h5" color="blue-gray" className="mb-1 flex items-center mx-auto gap-2 text-lg font-normal">
+        <Typography className="mb-1 flex items-center mx-auto gap-2">
         <span className="font-semibold">Processing Time:</span>01:23
         </Typography>
         <Typography>
@@ -46,7 +46,7 @@ const AllArtDetails = () => {
         <span className="font-semibold">Stock Status: </span>In Stock
         </Typography>
         <Typography>
-          <div className="flex text-lg font-normal">
+          <div className="flex">
               <p><span className="font-semibold">Price: </span>1200</p>
               <p className="ml-16"><span className="font-semibold">Rating: </span>4.5</p>
           </div>

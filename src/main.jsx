@@ -18,6 +18,7 @@ import { Toaster } from 'react-hot-toast';
 import FirebaseProvider from './FirebaseProvider/FirebaseProvider';
 import AllArtDetails from './Pages/AllArtDetails/AllArtDetails';
 import UpdateArts from './Pages/UpdateArts/UpdateArts';
+import AllArtMap from './components/AllArt/AllArtMap';
 
 
 const router = createBrowserRouter([
@@ -39,8 +40,9 @@ const router = createBrowserRouter([
         element:<Register></Register>
       },
       {
-        path:"/allArt",
-        element:<AllArt></AllArt>
+        path:"/allArtMap",
+        element:<AllArtMap></AllArtMap>,
+        loader: () => fetch('http://localhost:5000/addCraft')
       },
       {
         path:"/addCraft",

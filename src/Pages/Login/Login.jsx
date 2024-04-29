@@ -1,4 +1,3 @@
-
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialSide from "../SocialSide/SocialSide";
 import { useForm } from "react-hook-form";
@@ -20,7 +19,6 @@ const Login = () => {
     const onSubmit = data => {
         const { email, password } = data;
         console.log(email, password);
-
 
         signInUser(email, password)
         .then((result) => {

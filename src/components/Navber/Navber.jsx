@@ -6,7 +6,7 @@ const Navber = () => {
     const { logout, user } = useAuth()
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/allArt">All Art & craft Items</NavLink></li>
+        <li><NavLink to="/allArtMap">All Art & craft Items</NavLink></li>
         <li><NavLink to="/addCraft">Add Craft Item</NavLink></li>
         <li><NavLink to="/myArt">My Art&Craft List</NavLink></li>
     </>
