@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 
 const AllArt = ({allCraft}) => {
-        const { index, name, subcategory, stock, customization, price,rating } = allCraft;
+        const { name, subcategory, stock, customization, price,rating } = allCraft;
     return (
-        <div className="">
+        <div className="overflow-x-auto">
   <table className="table table-xs">
     <thead>
       <tr>
@@ -20,7 +20,7 @@ const AllArt = ({allCraft}) => {
     </thead> 
     <tbody>
       <tr>
-        <th>{index}</th> 
+        <th>1</th> 
         <td>{name}</td> 
         <td>{subcategory}</td> 
         <td>{stock}</td> 
