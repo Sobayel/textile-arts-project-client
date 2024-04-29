@@ -11,13 +11,13 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AddCraft from './components/AddCraft/AddCraft';
-import MyArt from './components/MyArt/MyArt';
 import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from 'react-hot-toast';
 import FirebaseProvider from './FirebaseProvider/FirebaseProvider';
 import AllArtDetails from './Pages/AllArtDetails/AllArtDetails';
 import UpdateArts from './Pages/UpdateArts/UpdateArts';
 import AllArtMap from './components/AllArt/AllArtMap';
+import ArtDefault from './components/MyArt/ArtDefault';
 
 
 const router = createBrowserRouter([
@@ -48,8 +48,9 @@ const router = createBrowserRouter([
         element:<AddCraft></AddCraft>
       },
       {
-        path:"/myArt",
-        element:<MyArt></MyArt>
+        path:"/artDefault",
+        element:<ArtDefault></ArtDefault>,
+        loader: () => fetch('http://localhost:5000/addCraft')
       },
       {
         path:"/allArtDetails/:id",
@@ -57,8 +58,9 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/addCraft/${params.id}`)
       },
       {
-        path:"/updateArts",
-        element:<UpdateArts></UpdateArts>
+        path:"/updateArts/:id",
+        element:<UpdateArts></UpdateArts>,
+        loader: ({ params }) => fetch(`http://localhost:5000/addCraft/${params.id}`)
       },
     ]
   },

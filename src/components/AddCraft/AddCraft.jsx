@@ -44,7 +44,7 @@ const AddCraft = () => {
         })
     }
     return (
-        <div className="bg-[#F4F3F0] py-5 px-24 rounded-xl">
+        <div className="py-5 px-24 rounded-xl">
             <h2 className="text-4xl font-bold text-blue-500 flex justify-center">Add Craft</h2>
             <form onSubmit={handleAddCraft}>
                 <div className="md:flex gap-10 mt-2">

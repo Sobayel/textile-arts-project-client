@@ -11,7 +11,7 @@ const Navber = () => {
         <li><NavLink to="/myArt">My Art&Craft List</NavLink></li>
     </>
     return (
-        <div className="navbar mt-3 bg-gray-200 mb-5 rounded-xl">
+        <div className="navbar mt-3 mb-5 rounded-xl">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

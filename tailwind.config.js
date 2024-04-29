@@ -5,8 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: "'Poppins', sans-serif ",
+        reenie: "'Reenie Beanie', cursive",
+      },
+    },
   },
   plugins: [ require('daisyui'),],
+  daisyui: {
+    themes: ["light", "synthwave"],
+  },
 }
 

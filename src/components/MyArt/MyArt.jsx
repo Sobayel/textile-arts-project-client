@@ -1,34 +1,62 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
-const MyArt = () => {
+const MyArt = ({allCraft,setAllArtsCraft,allArtsCraft}) => {
+    console.log(allCraft)
+    const {_id, name, customization, image, price,rating } = allCraft || {};
+
+
+    const handleDelete = _id =>{
+        console.log(_id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+
+            fetch(`http://localhost:5000/addCraft/${_id}`,{
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.deletedCount > 0){
+                    Swal.fire(
+                         "Deleted!",
+                         "Your Art has been deleted.",
+                         "success"
+                      );
+                      const remaining = allArtsCraft.filter(art => art._id !== _id)
+                      setAllArtsCraft(remaining);
+                }
+            })
+            }
+          });
+    }
     return (
-        <div>
-            <div className="dropdown dropdown-bottom flex justify-center mx-auto">
-                <summary className="m-1 btn">Customization</summary>
-                <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-                    <li><a>Yes</a></li>
-                    <li><a>No</a></li>
-                </ul>
-            </div>
             <div className="card card-side bg-slate-300 shadow-xl">
-                <figure><img className=" w-96 h-60" src="https://i.ibb.co/M70ST96/embroid-Beadwork.jpg" alt="Movie" /></figure>
+                <figure><img className=" w-96 h-60" src={image} alt="Movie" /></figure>
                 <div className=" flex justify-between w-full px-4 items-center">
                     <div>
-                        <h2 className="card-title text-2xl text-red-700">Item Name:Md.Sobayel Hossain</h2>
-                        <p className="text-xl font-semibold">Customization:  Yes</p>
-                        <p className="text-xl font-semibold">Price: 1300</p>
-                        <p className="text-xl font-semibold">Rating: 5.00</p>
+                        <h2 className="card-title text-xl">Name:{name}</h2>
+                        <p className="font-semibold">Customization: {customization}</p>
+                        <p className="font-semibold">Price: {price}</p>
+                        <p className="font-semibold">Rating: {rating}</p>
                     </div>
                     <div className="card-actions justify-end">
                         <div className="join join-vertical space-y-3">
-                            <Link to="/updateArts"><button className="btn">Update</button></Link>
-                            <button className="btn">Delete</button>
+                            <Link to={`updateArts/${_id}`}><button className="btn">Update</button></Link>
+                            <button  onClick={()=>handleDelete(_id)} className="btn">Delete</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 
