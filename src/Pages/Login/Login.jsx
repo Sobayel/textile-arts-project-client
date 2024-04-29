@@ -1,14 +1,41 @@
 
-import { Link } from "react-router-dom";
-import { register } from "swiper/element";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialSide from "../SocialSide/SocialSide";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import toast from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
 
 
 const Login = () => {
+    const [showPassword, setShowPassword] = useState(false);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { signInUser } = useAuth()
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    
+    const onSubmit = data => {
+        const { email, password } = data;
+        console.log(email, password);
+
+
+        signInUser(email, password)
+        .then((result) => {
+            if (result.user) {
+                toast.success('Successfully Login!');
+                setTimeout(()=>{
+                    navigate(location?.state || "/");
+                },2000)
+            }
+        });
+    }
     return (
         <div className="justify-center mx-auto border w-96 bg-slate-200 rounded-2xl flex-col items-center">
         <h1 className="text-2xl font-bold flex justify-center my-2">Login form</h1>
-        <form className="px-5 pt-6 mt-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="px-5 pt-6 mt-2">
             <div>
                 <p>Email</p>
                 <label data-aos="fade-up" data-aos-delay="1300" className="input input-bordered flex items-center gap-2">
@@ -17,6 +44,7 @@ const Login = () => {
                     {...register("email", { required: true })}
                     />
                 </label>
+                {errors.email && <span className="text-red-700">This field is required...</span>}
             </div>
 
             <div>
@@ -27,7 +55,13 @@ const Login = () => {
                     name="password" className="grow" placeholder="Password" 
                     {...register("password", { required: true })}
                     />
+                     <span onClick={()=>setShowPassword(!showPassword)}>
+                        {
+                            showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                        }
+                    </span>
                 </label>
+                 {errors.password && <span className="text-red-700">This field is required...</span>}
             </div>
 
             <div className="mt-3">

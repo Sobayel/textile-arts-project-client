@@ -1,12 +1,14 @@
 import { NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 
 const Navber = () => {
+    const { logout, user } = useAuth()
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/allArt">All Art</NavLink></li>
-        <li><NavLink to="/addCraft">Add Craft</NavLink></li>
-        <li><NavLink to="/myArt">My Art</NavLink></li>
+        <li><NavLink to="/allArt">All Art & craft Items</NavLink></li>
+        <li><NavLink to="/addCraft">Add Craft Item</NavLink></li>
+        <li><NavLink to="/myArt">My Art&Craft List</NavLink></li>
     </>
     return (
         <div className="navbar mt-3 bg-gray-200 mb-5 rounded-xl">
@@ -27,9 +29,25 @@ const Navber = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-            <NavLink to='/login'>
-                            <button data-aos="fade-left" data-aos-delay="1800" className="btn btn-outline btn-sm md:btn-sm lg:btn-md text-sm md:text-lg lg:text-lg hover:bg-slate-400 hover:text-black ml-4 font-semibold">Login</button>
+            {
+                    user ? <div className="dropdown dropdown-end flex items-center gap-1">
+                        <div className="tooltip tooltip-bottom" data-tip={user?.displayName || 'user not available'}>
+                            <div>
+                                <img className="lg:w-12 lg:h-12 w-8 h-8 md:w-10 md:h-10 rounded-full" src={user?.photoURL || "https://i.ibb.co/8rgf3bS/Sobayel.jpg"} />
+                            </div>
+                        </div>
+
+                        <div>
+                            <button 
+                                onClick={logout}
+                                className="btn btn-outline hover:bg-slate-400 hover:text-black ml-4 btn-sm md:btn-sm lg:btn-md text-sm md:text-lg lg:text-lg font-semibold">Logout</button>
+                        </div>
+                    </div>
+                        :
+                        <NavLink to='/login'>
+                            <button className="btn btn-outline btn-sm md:btn-sm lg:btn-md text-sm md:text-lg lg:text-lg hover:bg-slate-400 hover:text-black ml-4 font-semibold">Login</button>
                         </NavLink>
+                }
             </div>
         </div>
     );

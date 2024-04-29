@@ -1,15 +1,54 @@
 
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
-import { Link } from "react-router-dom";
-import { register } from "swiper/element";
+import { Link, Navigate } from "react-router-dom";
 import SocialSide from "../SocialSide/SocialSide";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 const Register = () => {
+    const [showPassword, setShowPassword] = useState(false);
+    const {createUser, userUpdateProfile} = useAuth();
+    const [registerError, setRegisterError] = useState('');
+
+    const { register, handleSubmit, formState: { errors }} = useForm()
+
+    const onSubmit = (data) => {
+        const {email, password, name, photo} = data;
+        console.log(email,password,name,photo);
+
+        setRegisterError('');
+
+        if (password.length < 6) {
+            setRegisterError('Please at least 6 characters or longer');
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            setRegisterError('Please at least one upper case characters...')
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            setRegisterError('Please at least one lower case characters...')
+            return;
+        }
+        createUser(email, password)
+        .then(() => {
+            userUpdateProfile(name, photo)
+            .then(() =>{
+                toast.success('Successfully Register!');
+                setTimeout(()=>{
+                    Navigate("/");
+                },2000)
+            })
+        });
+    }
     return (
         <div className="justify-center items-center w-96 border bg-slate-200 rounded-2xl mx-auto">
         <h1 data-aos="fade-up" data-aos-delay="1000" className="text-2xl font-bold flex justify-center my-2">Register form</h1>
-    <form className="px-5 pt-4 mt-2">
+    <form onSubmit={handleSubmit(onSubmit)} className="px-5 pt-4 mt-2">
         <div>
             <p data-aos="fade-up" data-aos-delay="1100" className="font-semibold">Name</p>
             <label data-aos="fade-up" data-aos-delay="1200" className="input input-bordered flex items-center gap-2">
@@ -18,6 +57,7 @@ const Register = () => {
                 />
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
             </label>
+            {errors.name && <span className="text-red-700">This field is required...</span>}
         </div>
 
         <div>
@@ -38,6 +78,7 @@ const Register = () => {
                 {...register("email", { required: true })}
                 />
             </label>
+            {errors.email && <span className="text-red-700">This field is required...</span>}
         </div>
 
         <div>
@@ -45,15 +86,23 @@ const Register = () => {
             <label data-aos="fade-up" data-aos-delay="1800" className="input input-bordered flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z" clipRule="evenodd" /></svg>
                 <input 
-                type="password" 
+                type={showPassword ? "text" : "password"}
                 name="password" 
                 className="grow" 
                 placeholder="Password" 
                 {...register("password", { required: true })}
                 />
-                
+                 <span onClick={()=>setShowPassword(!showPassword)}>
+                        {
+                            showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                        }
+                    </span>
             </label>
+            {errors.password && <span className="text-red-700">This field is required...</span>}
         </div>
+        {
+                    registerError && <p className="text-black text-sm">{registerError}</p>
+                }
         <div data-aos="fade-up" data-aos-delay="1900" className="mt-3">
             <button type="submit" className="btn hover:bg-slate-200 hover:text-black w-full text-xl btn-secondary">Register</button>
         </div>

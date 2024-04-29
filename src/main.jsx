@@ -13,6 +13,10 @@ import Register from './Pages/Register/Register';
 import AllArt from './components/AllArt/AllArt';
 import AddCraft from './components/AddCraft/AddCraft';
 import MyArt from './components/MyArt/MyArt';
+import { HelmetProvider } from 'react-helmet-async';
+import { Toaster } from 'react-hot-toast';
+import FirebaseProvider from './FirebaseProvider/FirebaseProvider';
+import AllArtDetails from './Pages/AllArtDetails/AllArtDetails';
 
 
 const router = createBrowserRouter([
@@ -45,12 +49,21 @@ const router = createBrowserRouter([
         path:"/myArt",
         element:<MyArt></MyArt>
       },
+      {
+        path:"/allArtDetails",
+        element:<AllArtDetails></AllArtDetails>
+      },
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+     <FirebaseProvider>
+     <HelmetProvider>
+      <RouterProvider router={router} />
+      <Toaster position='top-right'></Toaster>
+      </HelmetProvider>
+     </FirebaseProvider>
   </React.StrictMode>,
 )
