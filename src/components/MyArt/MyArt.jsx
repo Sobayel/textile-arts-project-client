@@ -1,66 +1,24 @@
+import { Link } from "react-router-dom";
 
 
 const MyArt = () => {
     return (
-        <div className="bg-[#F4F3F0] py-5 px-24 rounded-xl">
-            <h2 className="text-4xl font-bold text-blue-500 flex justify-center">My Craft</h2>
-            <form>
-                <div className="md:flex gap-10 mt-2">
-                <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold">Item Name</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="name" placeholder="Item Name"
-                            className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold">Customization</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="customization" placeholder="Enter Customization"
-                            className="input input-bordered w-full select" />
-                        </label>
+        <div className="card card-side bg-slate-300 shadow-xl">
+            <figure><img className=" w-96 h-60" src="https://i.ibb.co/M70ST96/embroid-Beadwork.jpg" alt="Movie" /></figure>
+            <div className=" flex justify-between w-full px-4 items-center">
+                <div>
+                    <h2 className="card-title text-2xl text-red-700">Item Name:Md.Sobayel Hossain</h2>
+                    <p className="text-xl font-semibold">Customization:  Yes</p>
+                    <p className="text-xl font-semibold">Price: 1300</p>
+                    <p className="text-xl font-semibold">Rating: 5.00</p>
+                </div>
+                <div className="card-actions justify-end">
+                    <div className="join join-vertical space-y-3">
+                        <Link to="/updateArts"><button className="btn">Update</button></Link>
+                        <button className="btn">Delete</button>
                     </div>
                 </div>
-                <div className="md:flex gap-10 mt-2">
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold">Price</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="price" placeholder="Enter Price"
-                            className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2">
-                        <label className="label">
-                            <span className="label-text font-semibold">Rating</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="rating" placeholder="Enter Rating"
-                            className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                </div>
-                <div className="form-control md:w-full">
-                        <label className="label">
-                            <span className="label-text font-semibold">Image</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="image" placeholder="Image"
-                            className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                <div className="mt-4">
-                    <input type="submit" value="Update" className="w-full bg-primary btn text-xl font-semibold" />
-                </div>
-                <div className="mt-4">
-                    <input type="submit" value="Delete" className="w-full bg-secondary btn text-xl font-semibold" />
-                </div>
-            </form>
+            </div>
         </div>
     );
 };

@@ -17,6 +17,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from 'react-hot-toast';
 import FirebaseProvider from './FirebaseProvider/FirebaseProvider';
 import AllArtDetails from './Pages/AllArtDetails/AllArtDetails';
+import UpdateArts from './Pages/UpdateArts/UpdateArts';
 
 
 const router = createBrowserRouter([
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path:"/allArtDetails",
         element:<AllArtDetails></AllArtDetails>
+      },
+      {
+        path:"/updateArts",
+        element:<UpdateArts></UpdateArts>
       },
     ]
   },
