@@ -13,9 +13,9 @@ const CraftItems = () => {
     }, []);
     return (
         <div className='my-8'>
-          <h1 className='text-5xl text-purple-600 font-bold flex justify-center'>Craft Items Section</h1>
+          <h1 className='text-4xl md:text-5xl text-purple-600 font-bold flex justify-center'>Craft Items Section</h1>
 
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mt-10">
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10">
          {
         allCraftItem.map((allCraft) => <CraftItemDefault
         key={allCraft._id}

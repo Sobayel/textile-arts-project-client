@@ -1,8 +1,9 @@
+# B9 A10 Type-02 Requirements
+
 # Textile Arts Blog
 github client link:https://github.com/programming-hero-web-course-4/B9A10-client-side-Sobayel
 github server link:https://github.com/programming-hero-web-course-4/b9a10-server-side-Sobayel
-
-Vercel live link:
+live link:
 
 ### Website Page Name:
 - Navbar

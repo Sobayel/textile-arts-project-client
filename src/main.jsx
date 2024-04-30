@@ -19,6 +19,8 @@ import UpdateArts from './Pages/UpdateArts/UpdateArts';
 import AllArtMap from './components/AllArt/AllArtMap';
 import ArtDefault from './components/MyArt/ArtDefault';
 import CardDetails from './Pages/CraftItems/CraftItemDefault/CardDetails/CardDetails';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import ArtCraftDetails from './Pages/ArtCraft/ArtCraftDefault/ArtCraftDetails/ArtCraftDetails';
 
 
 
@@ -47,16 +49,22 @@ const router = createBrowserRouter([
       },
       {
         path:"/addCraft",
-        element:<AddCraft></AddCraft>
+        element: <PrivateRoute>
+            <AddCraft></AddCraft>
+        </PrivateRoute>
       },
       {
         path:"/artDefault",
-        element:<ArtDefault></ArtDefault>,
+        element:<PrivateRoute>
+          <ArtDefault></ArtDefault>
+        </PrivateRoute>,
         loader: () => fetch('http://localhost:5000/addCraft')
       },
       {
         path:"/allArtDetails/:id",
-        element:<AllArtDetails></AllArtDetails>,
+        element:<PrivateRoute>
+          <AllArtDetails></AllArtDetails>
+        </PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/addCraft/${params.id}`)
       },
       {
@@ -67,7 +75,12 @@ const router = createBrowserRouter([
       {
         path: "/cardDetails/:id",
         element:<CardDetails></CardDetails>,
-        loader: () => fetch("http://localhost:5000/craftItem")
+        loader: () => fetch("http://localhost:5000/craftItemnn")
+      },
+      {
+        path: "/artCraftDetails/:id",
+        element:<ArtCraftDetails></ArtCraftDetails>,
+        loader: () => fetch("http://localhost:5000/craftItemnn")
       },
     ]
   },
