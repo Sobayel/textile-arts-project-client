@@ -20,7 +20,7 @@ const MyArt = ({allCraft,setAllArtsCraft,allArtsCraft}) => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-            fetch(`https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/addCraft/${_id}`,{
+            fetch(`https://textile-arts-server.vercel.app/addCraft/${_id}`,{
                 method: 'DELETE'
             })
             .then(res => res.json())

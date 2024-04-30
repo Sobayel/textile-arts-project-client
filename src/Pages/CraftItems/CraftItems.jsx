@@ -7,7 +7,7 @@ const CraftItems = () => {
     const [allCraftItem, setAllCraftItem] = useState([]);
 
     useEffect(() => {
-        fetch("https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/craftItem")
+        fetch("https://textile-arts-server.vercel.app/craftItem")
             .then(res => res.json())
             .then(data => setAllCraftItem(data))
     }, []);

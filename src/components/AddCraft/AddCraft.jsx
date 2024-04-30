@@ -23,7 +23,7 @@ const AddCraft = () => {
         console.log(newCraft);
 
 
-        fetch('https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/addCraft',{
+        fetch('https://textile-arts-server.vercel.app/addCraft',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

@@ -11,7 +11,6 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AddCraft from './components/AddCraft/AddCraft';
-import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from 'react-hot-toast';
 import FirebaseProvider from './FirebaseProvider/FirebaseProvider';
 import AllArtDetails from './Pages/AllArtDetails/AllArtDetails';
@@ -43,7 +42,7 @@ const router = createBrowserRouter([
       {
         path:"/allArtMap",
         element:<AllArtMap></AllArtMap>,
-        loader: () => fetch('https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/addCraft')
+        loader: () => fetch('https://textile-arts-server.vercel.app/addCraft')
       },
       {
         path:"/addCraft",
@@ -56,29 +55,29 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <ArtDefault></ArtDefault>
         </PrivateRoute>,
-        loader: () => fetch('https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/addCraft')
+        loader: () => fetch('https://textile-arts-server.vercel.app/addCraft')
       },
       {
         path:"/allArtDetails/:id",
         element:<PrivateRoute>
           <AllArtDetails></AllArtDetails>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/addCraft/${params.id}`)
+        loader: ({ params }) => fetch(`https://textile-arts-server.vercel.app/addCraft/${params.id}`)
       },
       {
         path:"/updateArts/:id",
         element:<UpdateArts></UpdateArts>,
-        loader: ({ params }) => fetch(`https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/addCraft/${params.id}`)
+        loader: ({ params }) => fetch(`https://textile-arts-server.vercel.app/addCraft/${params.id}`)
       },
       {
         path: "/cardDetails/:id",
         element:<CardDetails></CardDetails>,
-        loader: () => fetch("https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/craftItem")
+        loader: () => fetch("https://textile-arts-server.vercel.app/craftItem")
       },
       {
         path: "/artCraftDetails/:id",
         element:<ArtCraftDetails></ArtCraftDetails>,
-        loader: () => fetch(`https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/craftItem`)
+        loader: () => fetch("https://textile-arts-server.vercel.app/craftItem")
       },
     ]
   },
