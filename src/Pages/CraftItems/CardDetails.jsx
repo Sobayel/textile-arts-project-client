@@ -1,12 +1,14 @@
+
 import { Card, CardHeader, CardBody, Typography } from "@material-tailwind/react";
 import { NavLink, useLoaderData, useParams } from "react-router-dom";
 
-const ArtCraftDetails = () => {
+const CardDetails = () => {
     const cards = useLoaderData();
-    const { id } = useParams();
-    console.log(id)
-    const card = cards.find(card => card._id.toString() === id)
-    const {name, subcategory, description,stock, customization, processing,price,rating,image} = card || {};
+    console.log(cards)
+  const { id } = useParams();
+
+  const card = cards.find(card => card._id.toString() === id)
+  const {name, subcategory, description,stock, customization, processing,price,rating,image} = card || {};
     return (
         <div>
             <h2 className='text-4xl md:text-5xl text-purple-600 font-bold flex justify-center'>Craft Details Page</h2>
@@ -54,7 +56,8 @@ const ArtCraftDetails = () => {
         </CardBody>
       </Card>
         </div>
+        
     );
 };
 
-export default ArtCraftDetails;
+export default CardDetails;

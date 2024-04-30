@@ -18,11 +18,9 @@ import AllArtDetails from './Pages/AllArtDetails/AllArtDetails';
 import UpdateArts from './Pages/UpdateArts/UpdateArts';
 import AllArtMap from './components/AllArt/AllArtMap';
 import ArtDefault from './components/MyArt/ArtDefault';
-import CardDetails from './Pages/CraftItems/CraftItemDefault/CardDetails/CardDetails';
+import CardDetails from './Pages/CraftItems/CardDetails';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import ArtCraftDetails from './Pages/ArtCraft/ArtCraftDefault/ArtCraftDetails/ArtCraftDetails';
-
-
+import ArtCraftDetails from './Pages/ArtCraftDetails/ArtCraftDetails';
 
 const router = createBrowserRouter([
   {
@@ -75,12 +73,12 @@ const router = createBrowserRouter([
       {
         path: "/cardDetails/:id",
         element:<CardDetails></CardDetails>,
-        loader: () => fetch("http://localhost:5000/craftItemnn")
+        loader: () => fetch("http://localhost:5000/craftItem")
       },
       {
         path: "/artCraftDetails/:id",
         element:<ArtCraftDetails></ArtCraftDetails>,
-        loader: () => fetch("http://localhost:5000/craftItemnn")
+        loader: () => fetch(`http://localhost:5000/craftItem`)
       },
     ]
   },
@@ -89,10 +87,8 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
      <FirebaseProvider>
-     <HelmetProvider>
       <RouterProvider router={router} />
       <Toaster position='top-right'></Toaster>
-      </HelmetProvider>
      </FirebaseProvider>
   </React.StrictMode>,
 )

@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 
 const ArtCraftDefault = ({artCraft}) => {
-    console.log(artCraft)
     const {_id, name, subcategory, image } = artCraft || {};
     return (
         <div className="card card-compact shadow-xl">
@@ -11,7 +10,7 @@ const ArtCraftDefault = ({artCraft}) => {
     <h2 className="card-title font-semibold text-2xl">Name: {name}</h2>
     <p className="text-lg">Subcategory: {subcategory}</p>
     <div className="card-actions  mt-3">
-      <Link to={`/cardDetails/${_id}`} className="btn btn-primary w-full">View Details Page</Link>
+      <Link to={`/artCraftDetails/${_id}`} className="btn btn-primary w-full">View Details Page</Link>
     </div>
   </div>
 </div>

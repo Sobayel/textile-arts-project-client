@@ -24,8 +24,7 @@ useEffect(()=>{
                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                     <li onClick={()=>setFilter("all")}><a>All</a></li>
                     <li onClick={()=>setFilter("Yes")}><a>Yes</a></li>
-                    <li onClick={()=>setFilter(
-"No")}><a>No</a></li>
+                    <li onClick={()=>setFilter("No")}><a>No</a></li>
                 </ul>
             </div>
            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

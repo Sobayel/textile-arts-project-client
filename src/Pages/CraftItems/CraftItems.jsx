@@ -1,5 +1,5 @@
 
-import CraftItemDefault from "./CraftItemDefault/CraftItemDefault";
+import CraftItemDefault from "./CraftItemDefault";
 import { useEffect, useState } from "react";
 
 
