@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 
 
 const MyArt = ({allCraft,setAllArtsCraft,allArtsCraft}) => {
-    console.log(allCraft)
+    console.log(allCraft);
     const {_id, name, customization, image, price,rating } = allCraft || {};
 
 
@@ -51,7 +51,7 @@ const MyArt = ({allCraft,setAllArtsCraft,allArtsCraft}) => {
                     </div>
                     <div className="card-actions justify-end">
                         <div className="join join-vertical space-y-3">
-                            <Link to={`updateArts/${_id}`}><button className="btn">Update</button></Link>
+                            <Link to={`/updateArts/${_id}`}><button className="btn">Update</button></Link>
                             <button  onClick={()=>handleDelete(_id)} className="btn">Delete</button>
                         </div>
                     </div>

@@ -20,6 +20,7 @@ import AllArtMap from './components/AllArt/AllArtMap';
 import ArtDefault from './components/MyArt/ArtDefault';
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",

@@ -52,7 +52,7 @@ const AllArtDetails = () => {
           </div>
         </Typography>
         <Typography>
-          <NavLink to='/allArt' className="btn btn-outline hover:bg-slate-400 hover:text-black mt-4">Back to All Arts</NavLink>
+          <NavLink to='/allArtMap' className="btn btn-outline hover:bg-slate-400 hover:text-black mt-4">Back to All Arts</NavLink>
         </Typography>
       </CardBody>
     </Card>

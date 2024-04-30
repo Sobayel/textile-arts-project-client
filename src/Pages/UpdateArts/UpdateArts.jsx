@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateArts = () => {
-    const arts = useLoaderData();
-    const {_id, name, subcategory, description,stock, customization, processing,price,rating,image } = arts || {};
+    const addCraft = useLoaderData();
+    console.log(addCraft);
+    const {_id, name, subcategory, description,stock, customization, processing,price,rating,image } = addCraft || {};
 
     const handleUpdateArts = event => {
         event.preventDefault();
@@ -17,8 +19,8 @@ const UpdateArts = () => {
         const price = form.price.value;
         const rating = form.rating.value;
         const image = form.image.value;
-        const newCraft = {name, subcategory, description,stock, customization, processing,price,rating,image};
-        console.log(newCraft);
+        const updatedArts = {name, subcategory, description,stock, customization, processing,price,rating,image};
+        console.log(updatedArts);
 
 
         fetch(`http://localhost:5000/addCraft/${_id}`,{
