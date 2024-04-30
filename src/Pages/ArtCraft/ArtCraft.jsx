@@ -17,7 +17,7 @@ const ArtCraft = () => {
           <h1 className='text-4xl md:text-5xl text-purple-600 font-bold flex justify-center'>Art & Craft Categories Section</h1>
         <div className="flex-col text-center mx-auto mt-4">
         <label className="label">
-                            <span className="label-text flex justify-center mx-auto text-xl font-semibold"> Subcategory</span>
+                            <span className="label-text flex justify-center mx-auto text-xl font-semibold">Subcategory</span>
                         </label>
                         <label className="input-group">
                             <select className="select bg-slate-300" name="customization">
