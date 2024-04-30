@@ -23,7 +23,7 @@ const UpdateArts = () => {
         console.log(updatedArts);
 
 
-        fetch(`http://localhost:5000/addCraft/${_id}`,{
+        fetch(`https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/addCraft/${_id}`,{
             method: 'PUT',
             headers: {
                 'content-type' : 'application/json'

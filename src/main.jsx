@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       {
         path:"/allArtMap",
         element:<AllArtMap></AllArtMap>,
-        loader: () => fetch('http://localhost:5000/addCraft')
+        loader: () => fetch('https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/addCraft')
       },
       {
         path:"/addCraft",
@@ -56,29 +56,29 @@ const router = createBrowserRouter([
         element:<PrivateRoute>
           <ArtDefault></ArtDefault>
         </PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/addCraft')
+        loader: () => fetch('https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/addCraft')
       },
       {
         path:"/allArtDetails/:id",
         element:<PrivateRoute>
           <AllArtDetails></AllArtDetails>
         </PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/addCraft/${params.id}`)
+        loader: ({ params }) => fetch(`https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/addCraft/${params.id}`)
       },
       {
         path:"/updateArts/:id",
         element:<UpdateArts></UpdateArts>,
-        loader: ({ params }) => fetch(`http://localhost:5000/addCraft/${params.id}`)
+        loader: ({ params }) => fetch(`https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/addCraft/${params.id}`)
       },
       {
         path: "/cardDetails/:id",
         element:<CardDetails></CardDetails>,
-        loader: () => fetch("http://localhost:5000/craftItem")
+        loader: () => fetch("https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/craftItem")
       },
       {
         path: "/artCraftDetails/:id",
         element:<ArtCraftDetails></ArtCraftDetails>,
-        loader: () => fetch(`http://localhost:5000/craftItem`)
+        loader: () => fetch(`https://textile-arts-server-c5f8821o6-sobayel-44b8503d.vercel.app/craftItem`)
       },
     ]
   },
