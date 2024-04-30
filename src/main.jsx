@@ -18,6 +18,7 @@ import AllArtDetails from './Pages/AllArtDetails/AllArtDetails';
 import UpdateArts from './Pages/UpdateArts/UpdateArts';
 import AllArtMap from './components/AllArt/AllArtMap';
 import ArtDefault from './components/MyArt/ArtDefault';
+import CardDetails from './Pages/CraftItems/CraftItemDefault/CardDetails/CardDetails';
 
 
 
@@ -62,6 +63,11 @@ const router = createBrowserRouter([
         path:"/updateArts/:id",
         element:<UpdateArts></UpdateArts>,
         loader: ({ params }) => fetch(`http://localhost:5000/addCraft/${params.id}`)
+      },
+      {
+        path: "/cardDetails/:id",
+        element:<CardDetails></CardDetails>,
+        loader: () => fetch("http://localhost:5000/craftItem")
       },
     ]
   },

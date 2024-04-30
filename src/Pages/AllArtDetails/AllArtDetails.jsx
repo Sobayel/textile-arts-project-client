@@ -14,10 +14,10 @@ const AllArtDetails = () => {
         floated={false}
         className="m-8 col-span-2 rounded-2xl bg-[#F3F3F3]"
       >
-        <img data-aos="zoom-in" data-aos-delay="1000"
+        <img className="w-full h-80 rounded-2xl py-6 px-6"
           src={image}
           alt="card-image"
-          className="w-full h-80 rounded-2xl py-6 px-6"
+          
         />
       </CardHeader>
       <CardBody className="col-span-2 mt-8">

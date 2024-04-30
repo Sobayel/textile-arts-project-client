@@ -1,37 +1,28 @@
-import { Link } from "react-router-dom";
+
+import CraftItemDefault from "./CraftItemDefault/CraftItemDefault";
+import { useEffect, useState } from "react";
+
 
 const CraftItems = () => {
+    const [allCraftItem, setAllCraftItem] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/craftItem")
+            .then(res => res.json())
+            .then(data => setAllCraftItem(data))
+    }, []);
     return (
-        <div>
-            <h2 className="text-center text-3xl font-bold">Craft Items Section</h2>
-            <div className="overflow-x-auto mt-7">
-  <table className="table table-xs">
-    <thead>
-      <tr>
-        <th></th> 
-        <th>Name</th> 
-        <th>Subcategory</th> 
-        <th>Stock Status</th> 
-        <th>Customization</th> 
-        <th>Rating</th> 
-        <th>Price</th>
-        <th>Details</th>
-      </tr>
-    </thead> 
-    <tbody>
-      <tr>
-        <th>1</th> 
-        <td>Cy Ganderton</td> 
-        <td>Quality Control Specialist</td> 
-        <td>Littel, Schaden and Vandervort</td> 
-        <td>Canada</td> 
-        <td>12/16/2020</td> 
-        <td>Blue</td>
-        <td><Link to='/allArtDetails'>View Details</Link></td>
-      </tr>
-    </tbody> 
-  </table>
-</div>
+        <div className='my-8'>
+          <h1 className='text-5xl text-purple-600 font-bold flex justify-center'>Craft Items Section</h1>
+
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mt-10">
+         {
+        allCraftItem.map((allCraft) => <CraftItemDefault
+        key={allCraft._id}
+        allCraft={allCraft}
+        ></CraftItemDefault>)
+      }
+         </div>
         </div>
     );
 };
